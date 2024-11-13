@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="./style/output.css" rel="stylesheet" />
+  </head>
+  <body class="bg-[#F2F4F7] md:flex">
+    <!-- sidebar -->
+    <div class="p-6 m-6 bg-white md:m-0 md:w-96 md:h-[100vh] md:flex">
+      <form
+        id="kanban_form"
+        name="kanban_form"
+        class="flex flex-col items-center gap-14"
+      >
+        <div class="flex flex-col gap-6">
+          
+          <input
+            class="p-2 font-bold "
+            type="text"
+            id="title"
+            placeholder="Title *"
+            required
+          />
+          <textarea
+            class="bg-[#F2F4F7] rounded-lg p-4"
+            rows="4"
+            cols="40"
+            placeholder="Description"
+            name="area"
+            id="Description"
+          ></textarea>
+          <!-- subtask -->
+          <div class="flex flex-col gap-2">
+            <div class="flex justify-between">
+              <div class="flex gap-2">
+                <img src="./assets/issues.png" alt="" />
+                <span class="font-semibold text-xs leading-6">Subtask</span>
+              </div>
+
+              <button id="cr-sub" type="button">
+                <img src="./assets/new-feature.svg" alt="" />
+              </button>
+            </div>
+            <div
+              id="subtask-form"
+              class="flex  flex-col gap-2 overflow-y-scroll"
+            >
+              <div class="flex items-center gap-2">
+                <input
+                  class="bg-[#D6D6D6] w-4 h-4  border-2 p-1"
+                  type="checkbox"
+                  id="vehicle1"
+                  name="vehicle1"
+                  value="Bike"
+                />
+                <input
+                  
+                  class="subuser text-[#667085] text-[14px] font-medium"
+                  placeholder="Placeholder"
+                />
+                <br />
+              </div>
+            </div>
+          </div>
+          <!-- label -->
+          <div class="flex flex-col gap-3">
+            <div class="flex gap-2">
+              <img src="./assets/label.svg" alt="" />
+              <h2 class="font-semibold text-xs leading-6">Label</h2>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+              <span
+                onclick="selectlabel(this)"
+                class="bg-[#F7D4FF] text-[#A300F4] outline-[#A300F4] rounded-md font-bold text-sm px-3 py-2"
+                >Design</span
+              >
+              <span
+                onclick="selectlabel(this)"
+                class="bg-[#D1FADF] text-[#12B76A] rounded-md font-bold text-sm px-3 py-2 focus:outline focus:ring outline-[#12B76A]"
+                >Development</span
+              >
+              <span
+                onclick="selectlabel(this)"
+                class="bg-[#DFDAFF] text-[#3D24F6] rounded-md font-bold text-sm px-3 py-2 outline-[#3D24F6]"
+                >Product</span
+              >
+              <span
+                onclick="selectlabel(this)"
+                class="bg-[#FFDFDF] text-[#FF1616] rounded-md font-bold text-sm px-3 py-2 outline-[#FF1616]"
+                >Marketing</span
+              >
+              <span
+                onclick="selectlabel(this)"
+                class="bg-[#D1FAF7] text-[#00DBC2] rounded-md font-bold text-sm px-3 py-2 outline-[#00DBC2]"
+                >Business</span
+              >
+              <span
+                onclick="selectlabel(this)"
+                class="bg-[#FAFAD1] text-[#EBBC00] rounded-md font-bold text-sm px-3 py-2 outline-[#EBBC00]"
+                >Operation</span
+              >
+            </div>
+          </div>
+          <!-- assignee -->
+          <div class="mt-6 flex flex-col">
+            <div class="flex gap-2">
+              <img src="./assets/person.svg" alt="" />
+              <h2 class="font-semibold text-xs leading-6">Assignee<span class="text-[#FF1616] font-semibold text-base"> *</span> </h2>
+              
+            </div>
+
+            <div class="flex gap-2 flex-col mt-3">
+              <div class="flex items-center" draggable="true">
+
+
+                <div class="inline-flex justify-start items-center gap-3">
+                  <label
+                    class="relative flex cursor-pointer items-center rounded-full "
+                    for="ass1"
+                  >
+                    <input
+                    name="Assignee"
+                      type="radio"
+                      value="Taha"
+                      class="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all"
+                      id="ass1"
+                     checked
+                    />
+                    <span class="absolute bg-slate-800 w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                  </label>
+                  <label
+                    class="font-medium text-base "
+                    for="ass1"
+                  >
+                  Taha Hosseinpour
+                  </label>
+                </div>
+
+              </div>
+             
+              <div class="inline-flex justify-start items-center gap-3">
+                <label
+                  class="relative flex cursor-pointer items-center rounded-full "
+                  for="ass2"
+                >
+                  <input
+                  name="Assignee"
+                    type="radio"
+                    value="S.h"
+                    class="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all"
+                    id="ass2"
+                 
+                  />
+                  <span class="absolute bg-slate-800 w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                </label>
+                <label
+                  class="font-medium text-base "
+                  for="ass2"
+                >
+                S.h Mostafavi
+                </label>
+              </div>
+
+
+
+        
+    
+              <div class="inline-flex justify-start items-center gap-3">
+                <label
+                  class="relative flex cursor-pointer items-center rounded-full "
+                  for="ass3"
+                >
+                  <input
+                  name="Assignee"
+                    type="radio"
+                    value="Milad"
+                    class="peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300 checked:border-slate-400 transition-all"
+                    id="ass3"
+                 
+                  />
+                  <span class="absolute bg-slate-800 w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></span>
+                </label>
+                <label
+                  class="font-medium text-base "
+                  for="ass3"
+                >
+                Milad Mirzaei
+                </label>
+              </div>
+
+
+
+
+            </div>
+          </div>
+        </div>
+
+        <div class="btns flex gap-3 md:mt-auto">
+          <button
+            class="leading-6 text-nowrap font-medium text-base border-solid py-[10px] px-[18.5px] border-2 rounded-lg border-[#FF1616] text-[#FF1616]"
+            type="reset"
+          >
+            Clear All
+          </button>
+          <button
+            id="Create_task"
+            type="button"
+            class="bg-black font-semibold text-base text-nowrap text-white py-3 p-14 rounded-lg"
+          >
+            Create card
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <!-- mainbord -->
+
+    <div
+      class="border_list overflow-x-hidden md:overflow-y-scroll md:h-[100vh]"
+      id="border_list"
+    >
+      <!-- todo -->
+      <div
+        class="p-12 flex gap-6 overflow-x-scroll 2xl:overflow-x-hidden xl:h-[100vh] 2xl:w-[100vw]"
+      >
+        <div id="todo" class="swim-lane flex flex-col gap-6 justify-stretch">
+          <h2 class="font-extrabold text-4xl">TO DO</h2>
+
+          <!-- card -->
+          <div
+            class="task p-[20px] flex flex-col gap-4 w-80 rounded-lg bg-[#FCFCFD]"
+            draggable="true"
+          >
+            <!-- headcard -->
+            <div>
+              <h2 class="font-bold text-lg">Make a Kanban App</h2>
+              <span class="mr-6 font-semibold text-sm text-[#98A2B3]"
+                >12th Jan</span
+              >
+              <span class="font-semibold text-sm text-[#98A2B3]"
+                >Assigned to Taha</span
+              >
+            </div>
+
+            <!-- maincard -->
+            <div class="flex flex-col gap-3">
+              <p class="font-medium text-sm text-[#98A2B3]">
+                Please use trello and designs in Dribbble as reference. And
+                carry on...
+              </p>
+              <div class="flex items-center gap-2">
+                <input
+                  class="bg-[#D6D6D6] w-4 h-4 border-2 p-1"
+                  type="checkbox"
+                  id="cle1"
+                  name="vehicle1"
+                  value="Bike"
+                />
+                <label for="cle1" class="text-[#667085] text-[14px] font-medium"
+                  >Create an App
+                </label>
+                <br />
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="bg-[#D6D6D6] w-4 h-4 border-2 p-1"
+                  type="checkbox"
+                  id="cle1"
+                  name="vehicle1"
+                  value="Bike"
+                />
+                <label for="cle1" class="text-[#2B2D31] text-[14px] font-medium"
+                  >Write a letter
+                </label>
+                <br />
+              </div>
+            </div>
+            <!-- fooother -->
+            <div class="flex gap-2 flex-wrap" id="card_label">
+              <span
+                onclick="selectlabel(this)"
+                class="bg-[#D1FADF] text-[#12B76A] rounded-md font-bold text-sm px-3 py-2 focus:outline focus:ring outline-[#12B76A]"
+                >Development</span
+              >
+              <span
+                onclick="selectlabel(this)"
+                class="bg-[#DFDAFF] text-[#3D24F6] rounded-md font-bold text-sm px-3 py-2 outline-[#3D24F6]"
+                >Product</span
+              >
+            </div>
+          </div>
+
+          <!-- card -->
+          <div
+            class="task p-[20px] flex flex-col gap-4 w-80 rounded-lg bg-[#FCFCFD]"
+            draggable="true"
+          >
+            <!-- headcard -->
+            <div>
+              <h2 class="font-bold text-lg">Fix his kid through any means</h2>
+              <span class="mr-6 font-semibold text-sm text-[#98A2B3]"
+                >12th Jan</span
+              >
+              <span class="font-semibold text-sm text-[#98A2B3]"
+                >Assigned to Milad</span
+              >
+            </div>
+
+            <!-- maincard -->
+
+            <div class="flex gap-2 flex-wrap" id="card_label">
+              <span
+                onclick="selectlabel(this)"
+                class="bg-[#FAFAD1] text-[#EBBC00] rounded-md font-bold text-sm px-3 py-2 outline-[#EBBC00]"
+                >Operation</span
+              >
+            </div>
+          </div>
+          <!-- card -->
+          <div
+            class="task p-[20px] flex flex-col gap-4 w-80 rounded-lg bg-[#FCFCFD]"
+            draggable="true"
+          >
+            <!-- headcard -->
+            <div>
+              <h2 class="font-bold text-lg">Share it with friends</h2>
+              <span class="mr-6 font-semibold text-sm text-[#98A2B3]"
+                >12th Jan</span
+              >
+              <span class="font-semibold text-sm text-[#98A2B3]"
+                >Assigned to s.h</span
+              >
+            </div>
+
+            <!-- maincard -->
+          </div>
+        </div>
+
+        <!-- doing -->
+        <div id="doing" class="swim-lane flex flex-col gap-6 justify-stretch">
+          <h2 class="font-extrabold text-4xl">DOING</h2>
+
+         <!-- card -->
+          <div
+            class="task p-[20px] flex flex-col gap-4 w-80 rounded-lg bg-[#FCFCFD]"
+            draggable="true"
+          >
+            <!-- headcard -->
+            <div>
+              <h2 class="font-bold text-lg">Make a Kanban App</h2>
+              <span class="mr-6 font-semibold text-sm text-[#98A2B3]"
+                >12th Jan</span
+              >
+              <span class="font-semibold text-sm text-[#98A2B3]"
+                >Assigned to Taha</span
+              >
+            </div>
+
+            <!-- maincard -->
+            <div class="flex flex-col gap-3">
+              <p class="font-medium text-sm text-[#98A2B3]">
+                Please use trello and designs in Dribbble as reference. And
+                carry on...
+              </p>
+              <div class="flex items-center gap-2">
+                <input
+                  class="bg-[#D6D6D6] w-4 h-4 border-2 p-1"
+                  type="checkbox"
+                  id="cle1"
+                  name="vehicle1"
+                  value="Bike"
+                />
+                <label for="cle1" class="text-[#667085] text-[14px] font-medium"
+                  >Create an App
+                </label>
+                <br />
+              </div>
+              <div class="flex items-center gap-2">
+                <input
+                  class="bg-[#D6D6D6] w-4 h-4 border-2 p-1"
+                  type="checkbox"
+                  id="cle1"
+                  name="vehicle1"
+                  value="Bike"
+                />
+                <label for="cle1" class="text-[#2B2D31] text-[14px] font-medium"
+                  >Write a letter
+                </label>
+                <br />
+              </div>
+            </div>
+            <!-- fooother -->
+            <div class="flex gap-2 flex-wrap" id="card_label">
+              <span
+                onclick="selectlabel(this)"
+                class="bg-[#D1FADF] text-[#12B76A] rounded-md font-bold text-sm px-3 py-2 focus:outline focus:ring outline-[#12B76A]"
+                >Development</span
+              >
+              <span
+                onclick="selectlabel(this)"
+                class="bg-[#DFDAFF] text-[#3D24F6] rounded-md font-bold text-sm px-3 py-2 outline-[#3D24F6]"
+                >Product</span
+              >
+            </div>
+          </div>
+
+          <!-- card -->
+          <div
+            class="task p-[20px] flex flex-col gap-4 w-80 rounded-lg bg-[#FCFCFD]"
+            draggable="true"
+          >
+            <!-- headcard -->
+            <div>
+              <h2 class="font-bold text-lg">Fix his kid through any means</h2>
+              <span class="mr-6 font-semibold text-sm text-[#98A2B3]"
+                >12th Jan</span
+              >
+              <span class="font-semibold text-sm text-[#98A2B3]"
+                >Assigned to Milad</span
+              >
+            </div>
+
+            <!-- maincard -->
+
+            <div class="flex gap-2 flex-wrap" id="card_label">
+              <span
+                onclick="selectlabel(this)"
+                class="bg-[#FAFAD1] text-[#EBBC00] rounded-md font-bold text-sm px-3 py-2 outline-[#EBBC00]"
+                >Operation</span
+              >
+            </div>
+          </div>
+
+        </div>
+
+        <!-- done -->
+        <div id="done" class="swim-lane flex flex-col gap-6 justify-stretch">
+          <h2 class="font-extrabold text-4xl">DONE</h2>
+
+          <div
+          class="task p-[20px] flex flex-col gap-4 w-80 rounded-lg bg-[#FCFCFD]"
+          draggable="true"
+        >
+          <!-- headcard -->
+          <div>
+            <h2 class="font-bold text-lg">Make a Kanban App</h2>
+            <span class="mr-6 font-semibold text-sm text-[#98A2B3]"
+              >12th Jan</span
+            >
+            <span class="font-semibold text-sm text-[#98A2B3]"
+              >Assigned to Taha</span
+            >
+          </div>
+
+          <!-- maincard -->
+          <div class="flex flex-col gap-3">
+            <p class="font-medium text-sm text-[#98A2B3]">
+              Please use trello and designs in Dribbble as reference. And
+              carry on...
+            </p>
+            <div class="flex items-center gap-2">
+              <input
+                class="bg-[#D6D6D6] w-4 h-4 border-2 p-1"
+                type="checkbox"
+                id="cle1"
+                name="vehicle1"
+                value="Bike"
+              />
+              <label for="cle1" class="text-[#667085] text-[14px] font-medium"
+                >Create an App
+              </label>
+              <br />
+            </div>
+            <div class="flex items-center gap-2">
+              <input
+                class="bg-[#D6D6D6] w-4 h-4 border-2 p-1"
+                type="checkbox"
+                id="cle1"
+                name="vehicle1"
+                value="Bike"
+              />
+              <label for="cle1" class="text-[#2B2D31] text-[14px] font-medium"
+                >Write a letter
+              </label>
+              <br />
+            </div>
+          </div>
+          <!-- fooother -->
+          <div class="flex gap-2 flex-wrap" id="card_label">
+            <span
+              onclick="selectlabel(this)"
+              class="bg-[#D1FADF] text-[#12B76A] rounded-md font-bold text-sm px-3 py-2 focus:outline focus:ring outline-[#12B76A]"
+              >Development</span
+            >
+            <span
+              onclick="selectlabel(this)"
+              class="bg-[#DFDAFF] text-[#3D24F6] rounded-md font-bold text-sm px-3 py-2 outline-[#3D24F6]"
+              >Product</span
+            >
+          </div>
+        </div>
+
+        <!-- card -->
+        <div
+          class="task p-[20px] flex flex-col gap-4 w-80 rounded-lg bg-[#FCFCFD]"
+          draggable="true"
+        >
+          <!-- headcard -->
+          <div>
+            <h2 class="font-bold text-lg">Fix his kid through any means</h2>
+            <span class="mr-6 font-semibold text-sm text-[#98A2B3]"
+              >12th Jan</span
+            >
+            <span class="font-semibold text-sm text-[#98A2B3]"
+              >Assigned to Milad</span
+            >
+          </div>
+
+          <!-- maincard -->
+
+          <div class="flex gap-2 flex-wrap" id="card_label">
+            <span
+              onclick="selectlabel(this)"
+              class="bg-[#FAFAD1] text-[#EBBC00] rounded-md font-bold text-sm px-3 py-2 outline-[#EBBC00]"
+              >Operation</span
+            >
+          </div>
+        </div>
+        <!-- card -->
+        <div
+          class="task p-[20px] flex flex-col gap-4 w-80 rounded-lg bg-[#FCFCFD]"
+          draggable="true"
+        >
+          <!-- headcard -->
+          <div>
+            <h2 class="font-bold text-lg">Use Elephants and Snakes</h2>
+            <span class="mr-6 font-semibold text-sm text-[#98A2B3]"
+              >12th Jan</span
+            >
+            <span class="font-semibold text-sm text-[#98A2B3]"
+              >Assigned to s.h</span
+            >
+          </div>
+
+          <!-- maincard -->
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+    <script src="./drag.js"></script>
+  </body>
+</html>
